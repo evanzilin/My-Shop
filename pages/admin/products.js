@@ -1,3 +1,4 @@
+import formatCurrency from "@/utils/formatCurrency";
 import Layout from "@/components/Layout";
 import { getError } from "@/utils/error";
 import axios from "axios";
@@ -181,8 +182,8 @@ export default function Products() {
                     <tr key={product._id} className="border-b">
                       <td className="p-5">{product._id.substring(20, 24)}</td>
                       <td className="p-5">{product.name}</td>
-                      <td className="p-5">{product.price}</td>
-                      <td className="p-5">{product.category} ₹</td>
+                      <td className="p-5">{formatCurrency(product.price)}</td>
+                      <td className="p-5">{product.category}</td>
                       <td className="p-5">{product.countInStock}</td>
                       <td className="p-5">{product.rating}</td>
                       <td className="p-5">

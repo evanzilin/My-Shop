@@ -13,6 +13,7 @@ import {
 import Link from "next/link";
 import React, { useEffect, useReducer } from "react";
 import { Bar } from "react-chartjs-2";
+import formatCurrency from "@/utils/formatCurrency";
 
 ChartJS.register(
   CategoryScale,
@@ -124,7 +125,7 @@ export default function Dashboard() {
             <div>
               <div className="grid grid-cols-1 md:grid-cols-4">
                 <div className="card m-5 p-5">
-                  <p className="text-3xl">{summay.ordersPrice} ₹</p>
+                  <p className="text-3xl">{formatCurrency(summay.ordersPrice)}</p>
                   <p>Sales</p>
                   <Link href="/admin/orders">View sales</Link>
                 </div>

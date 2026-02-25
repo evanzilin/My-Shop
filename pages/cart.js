@@ -8,6 +8,7 @@ import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 import axios from "axios";
 import { toast } from "react-toastify";
+import formatCurrency from "@/utils/formatCurrency";
 
 function Cart() {
   const router = useRouter();
@@ -88,7 +89,7 @@ function Cart() {
                         ))}
                       </select>
                     </td>
-                    <td className="p-5 text-right">{item.price}₹</td>
+                    <td className="p-5 text-right">{formatCurrency(item.price)}</td>
                     <td className="p-5 text-center">
                       <button onClick={() => removeItemHandler(item)}>
                         <XCircleIcon className="h-5 w-5"></XCircleIcon>
@@ -106,11 +107,12 @@ function Cart() {
                   Subtotal (
                   {cartItems.reduce((total, item) => total + item.quantity, 0)}){" "}
                   :{" "}
-                  {cartItems.reduce(
-                    (total, item) => total + item.quantity * item.price,
-                    0
-                  )}{" "}
-                  ₹
+                  {formatCurrency(
+                    cartItems.reduce(
+                      (total, item) => total + item.quantity * item.price,
+                      0
+                    )
+                  )}
                 </div>
               </li>
               <li>

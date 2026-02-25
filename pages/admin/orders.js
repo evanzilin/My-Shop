@@ -3,6 +3,7 @@ import { getError } from "@/utils/error";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useReducer } from "react";
+import formatCurrency from "@/utils/formatCurrency";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -112,7 +113,7 @@ export default function Orders() {
                       <td className="p-5">
                         {order.createdAt.substring(0, 10)}
                       </td>
-                      <td className="p-5">{order.totalPrice} ₹</td>
+                      <td className="p-5">{formatCurrency(order.totalPrice)}</td>
                       <td className="p-5">
                         {order.isPaid
                           ? `${order.paidAt.substring(0, 10)}`

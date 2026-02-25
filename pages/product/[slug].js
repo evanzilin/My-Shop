@@ -10,6 +10,7 @@ import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
 import ReactStars from "react-rating-stars-component";
 import { toast } from "react-toastify";
+import formatCurrency from "@/utils/formatCurrency";
 
 export default function ProductDetail(props) {
   const { product } = props;
@@ -24,7 +25,7 @@ export default function ProductDetail(props) {
         <div>Product Not Found</div>
       </Layout>
     );
-  }
+  
 
   const addToCartHandler = async () => {
     const existItem = state.cart.cartItems.find(
@@ -112,7 +113,7 @@ export default function ProductDetail(props) {
           <div className="card p-5 my-2">
             <div className="mb-2 flex  justify-between">
               <div>Price</div>
-              <div>{product.price} ₹</div>
+              <div>{formatCurrency(product.price)}</div>
             </div>
             <div className="mb-2 flex justify-between">
               <div>Status</div>
@@ -129,6 +130,7 @@ export default function ProductDetail(props) {
       </div>
     </Layout>
   );
+}
 }
 
 export async function getServerSideProps(context) {
