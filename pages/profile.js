@@ -26,7 +26,7 @@ export default function Profile() {
 
   const submitHandler = async ({ name, email, password }) => {
     try {
-      await axios.put("/api/auth/update", {
+      await axios.put("/my-shop-navy-rho.vercel.app/api/auth/update", {
         name,
         email,
         password,

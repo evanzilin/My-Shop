@@ -61,7 +61,7 @@ export default function Dashboard() {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get("/api/admin/summary");
+        const { data } = await axios.get("/my-shop-navy-rho.vercel.app/api/admin/summary");
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (error) {
         dispatch({ type: "FETCH_FAIL", payload: getError(error) });

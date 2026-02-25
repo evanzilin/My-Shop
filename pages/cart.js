@@ -24,7 +24,7 @@ function Cart() {
 
   const updateCartHandler = async (item, qty) => {
     const quantity = Number(qty);
-    const { data } = await axios.get(`/api/products/${item._id}`);
+    const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/products/${item._id}`);
 
     if (data.countInStock < quantity) {
       toast.error("Sorry. Product is out of stock");

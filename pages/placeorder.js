@@ -41,7 +41,7 @@ export default function PlaceOrder() {
   const placeOrderHandler = async () => {
     try {
       setLoading(true);
-      const { data } = await axios.post("/api/orders", {
+      const { data } = await axios.post("/my-shop-navy-rho.vercel.app/api/orders", {
         orderItems: cartItems,
         shippingAddress,
         paymentMethod,

@@ -84,7 +84,7 @@ export default function Order() {
     const fetchOrder = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(`/api/orders/${orderId}`);
+        const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/orders/${orderId}`);
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (error) {
         dispatch({ type: "FETCH_FAIL", payload: getError(error) });
@@ -106,7 +106,7 @@ export default function Order() {
       }
     } else {
       const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get("/api/keys/paypal");
+        const { data: clientId } = await axios.get("/my-shop-navy-rho.vercel.app/api/keys/paypal");
 
         paypalDispatch({
           type: "resetOptions",
@@ -158,7 +158,7 @@ export default function Order() {
       try {
         dispatch({ type: "PAY_REQUEST" });
         const { data } = await axios.put(
-          `api/orders/${order._id}/pay`,
+          `my-shop-navy-rho.vercel.app/api/orders/${order._id}/pay`,
           details
         );
 
@@ -179,7 +179,7 @@ export default function Order() {
     try {
       dispatch({ type: "DELIVER_REQUEST" });
       const { data } = await axios.put(
-        `/api/admin/orders/${order._id}/deliver`,
+        `/my-shop-navy-rho.vercel.app/api/admin/orders/${order._id}/deliver`,
         {}
       );
       dispatch({ type: "DELIVER_SUCCESS", payload: data });

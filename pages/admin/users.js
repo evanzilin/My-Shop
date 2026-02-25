@@ -49,7 +49,7 @@ export default function Users() {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(`/api/admin/users`);
+        const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/admin/users`);
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: getError(err) });
@@ -69,7 +69,7 @@ export default function Users() {
     }
     try {
       dispatch({ type: "DELETE_REQUEST" });
-      await axios.delete(`/api/admin/users/${userId}`);
+      await axios.delete(`/my-shop-navy-rho.vercel.app/api/admin/users/${userId}`);
       dispatch({ type: "DELETE_SUCCESS" });
       toast.success("User deleted succssfully");
     } catch (error) {

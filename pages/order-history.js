@@ -33,7 +33,7 @@ export default function OrderHistory() {
     const fetchOrders = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get("api/orders/history");
+        const { data } = await axios.get("my-shop-navy-rho.vercel.app/my-shop-navy-rho.vercel.app/api/orders/history");
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (error) {
         dispatchEvent({ type: "FETCH_FAIL", payload: getError(error) });

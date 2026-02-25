@@ -33,7 +33,7 @@ export default function Orders() {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(`/api/admin/orders`);
+        const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/admin/orders`);
         console.log(data);
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {

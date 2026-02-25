@@ -33,7 +33,7 @@ export default function ProductDetail(props) {
     );
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
       toast.error("Sorry. Product is out of stock");
@@ -50,7 +50,7 @@ export default function ProductDetail(props) {
 
   const ratingChanged = async (productId, count) => {
     try {
-      await axios.put(`/api/products/${productId}`, {
+      await axios.put(`/my-shop-navy-rho.vercel.app/api/products/${productId}`, {
         rating: count,
       });
       toast.success(

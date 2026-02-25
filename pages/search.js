@@ -50,7 +50,7 @@ export default function Search(props) {
     const existItem = cart.cartItems.find((item) => item.slug === product.slug);
     const quantity = existItem ? existItem.quantity + 1 : 1;
 
-    const { data } = await axios.get(`/api/products/${product._id}`);
+    const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/products/${product._id}`);
 
     if (data.countInStock < quantity) {
       toast.error("Sorry. Product is out of stock");

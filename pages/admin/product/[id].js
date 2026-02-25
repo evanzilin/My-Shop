@@ -65,7 +65,7 @@ export default function ProductEditScreen() {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(`/api/admin/products/${productId}`);
+        const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/admin/products/${productId}`);
         dispatch({ type: "FETCH_SUCCESS" });
         setValue("name", data.name);
         setValue("slug", data.slug);
@@ -96,7 +96,7 @@ export default function ProductEditScreen() {
   }) => {
     try {
       dispatch({ type: "UPDATE_REQUEST" });
-      await axios.put(`/api/admin/products/${productId}`, {
+      await axios.put(`/my-shop-navy-rho.vercel.app/api/admin/products/${productId}`, {
         name,
         slug,
         price,
@@ -122,7 +122,7 @@ export default function ProductEditScreen() {
       dispatch({ type: "UPLOAD_REQUEST" });
       const {
         data: { signature, timestamp },
-      } = await axios("/api/admin/cloudinary-sign");
+      } = await axios("/my-shop-navy-rho.vercel.app/api/admin/cloudinary-sign");
 
       const file = e.target.files[0];
 

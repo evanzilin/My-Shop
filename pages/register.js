@@ -29,7 +29,7 @@ export default function Register() {
 
   const submitHandler = async ({ name, email, password }) => {
     try {
-      await axios.post("/api/auth/signup", {
+      await axios.post("/my-shop-navy-rho.vercel.app/api/auth/signup", {
         redirect: false,
         name,
         email,

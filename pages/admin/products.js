@@ -65,7 +65,7 @@ export default function Products() {
     const fetchData = async () => {
       try {
         dispatch({ type: "FETCH_REQUEST" });
-        const { data } = await axios.get(`/api/admin/products`);
+        const { data } = await axios.get(`/my-shop-navy-rho.vercel.app/api/admin/products`);
         dispatch({ type: "FETCH_SUCCESS", payload: data });
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: getError(err) });
@@ -85,7 +85,7 @@ export default function Products() {
     }
     try {
       dispatch({ type: "CREATE_REQUEST" });
-      const { data } = await axios.post(`/api/admin/products`);
+      const { data } = await axios.post(`/my-shop-navy-rho.vercel.app/api/admin/products`);
       dispatch({ type: "CREATE_SUCCESS" });
       toast.success("Product created succssfully");
       router.push(`/admin/product/${data.product._id}`);
@@ -101,7 +101,7 @@ export default function Products() {
     }
     try {
       dispatch({ type: "DELETE_REQUEST" });
-      await axios.delete(`/api/admin/products/${productId}`);
+      await axios.delete(`/my-shop-navy-rho.vercel.app/api/admin/products/${productId}`);
       dispatch({ type: "DELETE_SUCCESS" });
       toast.success("Product deleted succssfully");
     } catch (error) {
